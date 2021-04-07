@@ -1,2 +1,4 @@
 /.idea/
+/shops/*
+!/shops/.gitkeep
 /vendor/

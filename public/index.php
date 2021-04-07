@@ -12,6 +12,8 @@ use Slim\Factory\AppFactory;
 
 $app = AppFactory::create();
 
+$app->addBodyParsingMiddleware();
+
 $app->get('/registration', function (Request $request, Response $response, array $args) {
     $appSecret = 'sw-example-app-1337';
     $appName = 'SwExampleApp';
@@ -48,9 +50,21 @@ $app->post('/registration/confirm', function (Request $request, Response $respon
     # TODO Verify Signature
 
     $data = $request->getParsedBody();
-    # TODO Store information
+
+    file_put_contents(
+        sprintf(__DIR__ . '/../shops/%s.json', $data['shopId']),
+        json_encode($data)
+    );
 
     return $response->withStatus(200);
+});
+
+$app->post('/customer/greet', function (Request $request, Response $response, array $args) {
+    $data = $request->getParsedBody();
+
+    # TODO Send out a nice greeting to the customer
+
+    return $response->withHeader('Content-Type', 'application/json');
 });
 
 $app->run();

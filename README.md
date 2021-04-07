@@ -1,5 +1,7 @@
 # Example Shopware 6 App
 
+Just to getting to know the App system ;-)
+
 ## Requirements
 * Docker
 * Composer
