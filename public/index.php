@@ -67,4 +67,10 @@ $app->post('/customer/greet', function (Request $request, Response $response, ar
     return $response->withHeader('Content-Type', 'application/json');
 });
 
+$app->get('/greetings/module', function (Request $request, Response $response, array $args) {
+    $response->getBody()->write(file_get_contents(__DIR__ . '/module.html'));
+
+    return $response;
+});
+
 $app->run();
