@@ -10,12 +10,13 @@ Have the `shopware/development` project up and running.
 
 ## Installation
 
+Clone this repository into `custom/apps/SwExampleApp`.
+
 Install Composer dependencies by running `composer install`.
 
 Start the App by running `docker-compose up -d`.
 
-Connect the App by running `docker network connect --alias sw-example-app development_shopware sw-example-app_sw-example-app-nginx_1`.  
-_Note: The network and/or service name may differ according to your setup._
+Connect the App by running `docker network connect --alias sw-example-app development_shopware swexampleapp_sw-example-app-nginx_1`.
 
 ## Development
 
