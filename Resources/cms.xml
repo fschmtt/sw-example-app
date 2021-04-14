@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<cms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../platform/src/Core/Framework/App/Cms/Schema/cms-1.0.xsd">
+    <blocks>
+        <block>
+            <name>technical-block-name</name>
+            <category>text</category>
+
+            <label>Block from app</label>
+            <label lang="de-DE">Block von einer App</label>
+
+            <slots>
+                <slot name="left" type="sometype">
+                    <config>
+                        <config-value name="displayMode" value="cover" />
+                    </config>
+                </slot>
+                <slot name="right" type="sometype">
+                    <config>
+                        <config-value name="backgroundColor" value="#fff"/>
+                    </config>
+                </slot>
+            </slots>
+
+            <default-config>
+                <config-value name="marginBottom" value="20px" />
+                <config-value name="marginTop" value="20px" />
+                <config-value name="marginLeft" value="20px" />
+                <config-value name="marginRight" value="20px" />
+                <config-value name="sizingMode" value="boxed" />
+            </default-config>
+
+            <custom-css>
+                color: red !important;
+            </custom-css>
+        </block>
+    </blocks>
+</cms>
