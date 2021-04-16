@@ -1,37 +1,92 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <cms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../platform/src/Core/Framework/App/Cms/Schema/cms-1.0.xsd">
-    <blocks>
-        <block>
-            <name>technical-block-name</name>
-            <category>text</category>
+<blocks>
+    <block>
+        <name>my-first-block</name>
+        <category>text-image</category>
 
-            <label>Block from app</label>
-            <label lang="de-DE">Block von einer App</label>
+        <label>Block from app</label>
+        <label lang="de-DE">Block einer App</label>
 
-            <slots>
-                <slot name="left" type="sometype">
-                    <config>
-                        <config-value name="displayMode" value="cover" />
-                    </config>
-                </slot>
-                <slot name="right" type="sometype">
-                    <config>
-                        <config-value name="backgroundColor" value="#fff"/>
-                    </config>
-                </slot>
-            </slots>
+        <slots>
+            <slot name="left" type="manufacturer-logo">
+                <config>
+                    <configValue name="display-mode" value="cover"/>
+                </config>
+            </slot>
+            <slot name="middle" type="image-gallery">
+                <config>
+                    <configValue name="display-mode" value="auto"/>
+                    <configValue name="background-color" value="red"/>
+                </config>
+            </slot>
+            <slot name="right" type="buy-box">
+                <config>
+                    <configValue name="display-mode" value="contain"/>
+                </config>
+            </slot>
+        </slots>
 
-            <default-config>
-                <config-value name="marginBottom" value="20px" />
-                <config-value name="marginTop" value="20px" />
-                <config-value name="marginLeft" value="20px" />
-                <config-value name="marginRight" value="20px" />
-                <config-value name="sizingMode" value="boxed" />
-            </default-config>
+        <defaultConfig>
+            <marginBottom>20px</marginBottom>
+            <marginTop>20px</marginTop>
+            <marginLeft>20px</marginLeft>
+            <marginRight>20px</marginRight>
+            <sizingMode>boxed</sizingMode>
+            <backgroundColor>#000</backgroundColor>
+        </defaultConfig>
 
-            <custom-css>
-                color: red !important;
-            </custom-css>
-        </block>
-    </blocks>
+        <customCss>
+            color: red !important;
+
+            #my-id > .my-class {
+            font-size: 1.625rem;
+            }
+        </customCss>
+    </block>
+
+    <block>
+        <name>my-second-block</name>
+        <category>text-image</category>
+
+        <label>Block from app</label>
+        <label lang="de-DE">Block einer App</label>
+
+        <slots>
+            <slot name="left" type="form">
+                <config>
+                    <configValue name="display-mode" value="cover"/>
+                </config>
+            </slot>
+            <slot name="middle" type="image">
+                <config>
+                    <configValue name="display-mode" value="auto"/>
+                    <configValue name="background-color" value="red"/>
+                </config>
+            </slot>
+            <slot name="right" type="youtube-video">
+                <config>
+                    <configValue name="display-mode" value="contain"/>
+                </config>
+            </slot>
+        </slots>
+
+        <defaultConfig>
+            <marginBottom>20px</marginBottom>
+            <marginTop>20px</marginTop>
+            <marginLeft>20px</marginLeft>
+            <marginRight>20px</marginRight>
+            <sizingMode>boxed</sizingMode>
+            <backgroundColor>#000</backgroundColor>
+        </defaultConfig>
+
+        <customCss>
+            color: red !important;
+
+            #my-id > .my-class {
+            font-size: 1.625rem;
+            }
+        </customCss>
+    </block>
+</blocks>
 </cms>
