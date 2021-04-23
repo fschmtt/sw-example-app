@@ -6,7 +6,7 @@ Just to getting to know the App system ;-)
 * Docker
 * Composer
 
-Have the `shopware/development` project up and running.
+Have the [shopware/development](https://gitlab.shopware.com/shopware/6/product/development) project up and running.
 
 ## Installation
 
