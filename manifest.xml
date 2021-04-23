@@ -12,8 +12,8 @@
         <license>MIT</license>
     </meta>
 
-    <!--<setup>
+    <setup>
         <registrationUrl>http://sw-example-app/registration</registrationUrl>
         <secret>sw-example-app-1337</secret>
-    </setup>-->
+    </setup>
 </manifest>
