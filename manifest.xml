@@ -6,8 +6,8 @@
         <label lang="de-DE">SwExampleApp</label>
         <description>Greets new customers.</description>
         <description lang="de-DE">Begrüßt neue Kunden.</description>
-        <author>shopware AG</author>
-        <copyright>(c) by showare AG</copyright>
+        <author>fschmtt</author>
+        <copyright>(c) by fschmtt</copyright>
         <version>1.0.0</version>
         <license>MIT</license>
     </meta>
