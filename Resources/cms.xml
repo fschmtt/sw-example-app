@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<cms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../platform/src/Core/Framework/App/Cms/Schema/cms-1.0.xsd">
+<cms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/Framework/App/Cms/Schema/cms-1.0.xsd">
 <blocks>
     <block>
         <name>my-first-block</name>
@@ -11,38 +11,30 @@
         <slots>
             <slot name="left" type="manufacturer-logo">
                 <config>
-                    <configValue name="display-mode" value="cover"/>
+                    <config-value name="display-mode" source="static" value="cover"/>
                 </config>
             </slot>
             <slot name="middle" type="image-gallery">
                 <config>
-                    <configValue name="display-mode" value="auto"/>
-                    <configValue name="background-color" value="red"/>
+                    <config-value name="display-mode" source="static" value="auto"/>
+                    <config-value name="background-color" source="static" value="red"/>
                 </config>
             </slot>
             <slot name="right" type="buy-box">
                 <config>
-                    <configValue name="display-mode" value="contain"/>
+                    <config-value name="display-mode" source="static" value="contain"/>
                 </config>
             </slot>
         </slots>
 
-        <defaultConfig>
-            <marginBottom>20px</marginBottom>
-            <marginTop>20px</marginTop>
-            <marginLeft>20px</marginLeft>
-            <marginRight>20px</marginRight>
-            <sizingMode>boxed</sizingMode>
-            <backgroundColor>#000</backgroundColor>
-        </defaultConfig>
-
-        <customCss>
-            color: red !important;
-
-            #my-id > .my-class {
-            font-size: 1.625rem;
-            }
-        </customCss>
+        <default-config>
+            <margin-bottom>20px</margin-bottom>
+            <margin-top>20px</margin-top>
+            <margin-left>20px</margin-left>
+            <margin-right>20px</margin-right>
+            <sizing-mode>boxed</sizing-mode>
+            <background-color>#000</background-color>
+        </default-config>
     </block>
 
     <block>
@@ -55,38 +47,30 @@
         <slots>
             <slot name="left" type="form">
                 <config>
-                    <configValue name="display-mode" value="cover"/>
+                    <config-value name="display-mode" source="static" value="cover"/>
                 </config>
             </slot>
             <slot name="middle" type="image">
                 <config>
-                    <configValue name="display-mode" value="auto"/>
-                    <configValue name="background-color" value="red"/>
+                    <config-value name="display-mode" source="static" value="auto"/>
+                    <config-value name="background-color" source="static" value="red"/>
                 </config>
             </slot>
             <slot name="right" type="youtube-video">
                 <config>
-                    <configValue name="display-mode" value="contain"/>
+                    <config-value name="display-mode" source="static" value="contain"/>
                 </config>
             </slot>
         </slots>
 
-        <defaultConfig>
-            <marginBottom>20px</marginBottom>
-            <marginTop>20px</marginTop>
-            <marginLeft>20px</marginLeft>
-            <marginRight>20px</marginRight>
-            <sizingMode>boxed</sizingMode>
-            <backgroundColor>#000</backgroundColor>
-        </defaultConfig>
-
-        <customCss>
-            color: red !important;
-
-            #my-id > .my-class {
-            font-size: 1.625rem;
-            }
-        </customCss>
+        <default-config>
+            <margin-bottom>20px</margin-bottom>
+            <margin-top>20px</margin-top>
+            <margin-left>20px</margin-left>
+            <margin-right>20px</margin-right>
+            <sizing-mode>boxed</sizing-mode>
+            <background-color>#000</background-color>
+        </default-config>
     </block>
 </blocks>
 </cms>
