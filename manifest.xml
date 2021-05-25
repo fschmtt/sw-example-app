@@ -16,4 +16,13 @@
         <registrationUrl>http://sw-example-app/registration</registrationUrl>
         <secret>sw-example-app-1337</secret>
     </setup>
+
+    <admin>
+        <module name="greetings" source="http://localhost/greetings/module" parent="sw-customer">
+            <label>Greetings</label>
+            <label lang="de-DE">Begrüßungen</label>
+        </module>
+
+        <main-module source="http://localhost/greetings/module"/>
+    </admin>
 </manifest>
