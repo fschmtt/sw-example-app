@@ -33,7 +33,7 @@
             <margin-left>20px</margin-left>
             <margin-right>20px</margin-right>
             <sizing-mode>boxed</sizing-mode>
-            <background-color>#000</background-color>
+            <background-color>#ff0000</background-color>
         </default-config>
     </block>
 
@@ -69,7 +69,7 @@
             <margin-left>20px</margin-left>
             <margin-right>20px</margin-right>
             <sizing-mode>boxed</sizing-mode>
-            <background-color>#000</background-color>
+            <background-color>#0000ff</background-color>
         </default-config>
     </block>
 </blocks>
