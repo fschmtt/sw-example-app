@@ -4,7 +4,6 @@ Just to getting to know the App system ;-)
 
 ## Requirements
 * Docker
-* Composer
 
 Have the [shopware/development](https://gitlab.shopware.com/shopware/6/product/development) project up and running.
 
@@ -12,23 +11,28 @@ Have the [shopware/development](https://gitlab.shopware.com/shopware/6/product/d
 
 Clone this repository into `custom/apps/SwExampleApp`.
 
-Install Composer dependencies by running `composer install`.
+Install Composer dependencies by running `docker-compose run composer composer install`.
 
 Start the App by running `docker-compose up -d`.
 
-Connect the App by running `docker network connect --alias sw-example-app development_shopware swexampleapp_sw-example-app-nginx_1`.
-
 ## Development
 
-You can access the App via http://localhost/ (default HTTP port `80`).
-
-From within the Docker network the container is accessible by its alias `sw-example-app` i.e. http://sw-example-app/ (again default HTTP port `80`).
+You can access the App via http://localhost:8181/.
 
 In your App's `manifest.xml` you’ll want to use:
 ```xml
     ...
     <setup>
-        <registrationUrl>http://sw-example-app/registration</registrationUrl>
+        <registrationUrl>http://localhost:8181/registration</registrationUrl>
     </setup>
     ...
 ```
+
+## Routes
+
+|Route|Description|
+|---|---|
+|`GET /registration`||
+|`POST /registration/confirm`||
+|`POST /customer/greet`|Webhook for `checkout.customer.registered` event|
+|`GET /greetings/module`|Main module for Shopware Administration|

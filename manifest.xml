@@ -13,16 +13,24 @@
     </meta>
 
     <setup>
-        <registrationUrl>http://sw-example-app/registration</registrationUrl>
+        <registrationUrl>http://localhost:8181/registration</registrationUrl>
         <secret>sw-example-app-1337</secret>
     </setup>
 
     <admin>
-        <module name="greetings" source="http://localhost/greetings/module" parent="sw-customer">
+        <module name="greetings" source="http://localhost:8181/greetings/module" parent="sw-customer">
             <label>Greetings</label>
             <label lang="de-DE">Begrüßungen</label>
         </module>
 
-        <main-module source="http://localhost/greetings/module"/>
+        <main-module source="http://localhost:8181/greetings/module"/>
     </admin>
+
+    <permissions>
+        <read>customer</read>
+    </permissions>
+
+    <webhooks>
+        <webhook name="greetCustomer" url="https://localhost:8181/customer/greet" event="checkout.customer.register"/>
+    </webhooks>
 </manifest>

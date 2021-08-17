@@ -38,7 +38,7 @@ $app->get('/registration', function (Request $request, Response $response, array
         json_encode([
             'proof' => $proof,
             'secret' => $secret,
-            'confirmation_url' => 'http://sw-example-app/registration/confirm'
+            'confirmation_url' => 'http://localhost:8181/registration/confirm'
         ])
     );
 
@@ -53,7 +53,7 @@ $app->post('/registration/confirm', function (Request $request, Response $respon
 
     file_put_contents(
         sprintf(__DIR__ . '/../shops/%s.json', $data['shopId']),
-        json_encode($data)
+        json_encode($data, JSON_THROW_ON_ERROR)
     );
 
     return $response->withStatus(200);

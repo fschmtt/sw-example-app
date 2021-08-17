@@ -2,6 +2,7 @@
     "name": "fschmtt/sw-example-app",
     "require": {
         "php": "^8.0",
+        "ext-json": "*",
         "slim/slim": "^4.7",
         "slim/psr7": "^1.3"
     }
