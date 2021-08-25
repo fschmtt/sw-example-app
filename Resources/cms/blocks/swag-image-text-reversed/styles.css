@@ -1,4 +1,6 @@
-/* Styling of your block preview in the CMS sidebar */
+/*
+ * Styling of your block preview in the CMS sidebar
+ */
 .sw-cms-preview-swag-image-text-reversed {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -6,9 +8,25 @@
     padding: 15px;
 }
 
-/* Styling of your block on the CMS stage */
+/*
+ * Styling of your block on the CMS stage
+ */
 .sw-cms-block-swag-image-text-reversed-component {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
     grid-gap: 40px;
+}
+
+/*
+ * Styling of left slot
+ */
+.sw-cms-block-swag-image-text-reversed-component .sw-cms-slot-left {
+    /* nth */
+}
+
+/*
+ * Styling of right slot
+ */
+.sw-cms-block-swag-image-text-reversed-component .sw-cms-slot-right {
+    /* nth */
 }
