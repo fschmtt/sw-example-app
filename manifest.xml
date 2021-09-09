@@ -13,7 +13,7 @@
     </meta>
 
     <setup>
-        <registrationUrl>http://localhost:8181/registration</registrationUrl>
+        <registrationUrl>http://nginx/registration</registrationUrl>
         <secret>sw-example-app-1337</secret>
     </setup>
 
