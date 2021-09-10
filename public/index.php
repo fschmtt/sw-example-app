@@ -38,7 +38,7 @@ $app->get('/registration', function (Request $request, Response $response, array
         json_encode([
             'proof' => $proof,
             'secret' => $secret,
-            'confirmation_url' => 'http://localhost:8181/registration/confirm'
+            'confirmation_url' => 'http://swexampleapp_nginx_1/registration/confirm'
         ])
     );
 
