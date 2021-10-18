@@ -19,7 +19,7 @@ Start the App by running `docker-compose up -d`.
 
 ## Development
 
-You can access the App via http://localhost:8181/.
+You can access the App via http://localhost:8181.
 
 In your App's `manifest.xml` you’ll want to use:
 ```xml
@@ -38,3 +38,45 @@ In your App's `manifest.xml` you’ll want to use:
 |`POST /registration/confirm`||
 |`POST /customer/greet`|Webhook for `checkout.customer.registered` event|
 |`GET /greetings/module`|Main module for Shopware Administration|
+
+## Registration Workflow (Setup)
+
+### Example Registration Request
+```http request
+GET /registration?shop-id=GLblL0Q8YI7veaV5&shop-url=http://shopware.dev&timestamp=1634563302
+
+Host: localhost
+Sw-User-Language: en-GB
+Sw-Context-Language: 2fbb5fe2e29a4d70aa5854ce7ce3e20b
+Sw-Version: 6.4.9999999.9999999-dev
+Shopware-App-Signature: e58d9b15962180fe013fc3414bfa1a0436017e2f77c7d33d3459c74f1eaf4bdb
+```
+
+### Example Registration Response
+```json
+{
+    "proof": "833e639da5798c182786515db9aaf0ad7657ae15968030c45bebb2ed26e8309d",
+    "secret": "18a53af4c55d2c4460937dab1054c338022fccbae9eb68da00e2d7c3e3c62b87",
+    "confirmation_url": "http://localhost:8181/registration/confirm"
+}
+```
+
+### Example Confirmation Request
+```http request
+POST /registration/confirm
+
+Sw-User-Language: en-GB
+Sw-Context-Language: 2fbb5fe2e29a4d70aa5854ce7ce3e20b
+Sw-Version: 6.4.9999999.9999999-dev
+Shopware-Shop-Signature: b3a2cc3e9c622cf24579518a951b6d569eaf00970b46bb20b97bf8fb0fbdb2a1
+Content-Type: application/json
+Host: localhost
+
+{
+    "apiKey":"SWIAWJNGBNZRQJHTVGKWZTLVTQ",
+    "secretKey":"MWN0a3ppZXZSOWpLRUk1d0pKMUdxVDB4dkEzNVFOOWY3bjZaTEo",
+    "timestamp":"1634563305",
+    "shopUrl":"http:\/\/shopware-cloud.swag:8000",
+    "shopId":"GLblL0Q8YI7veaV5"
+}
+```
