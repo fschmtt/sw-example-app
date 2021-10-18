@@ -32,6 +32,6 @@
     </permissions>
 
     <webhooks>
-        <webhook name="greetCustomer" url="https://localhost:8181/customer/greet" event="checkout.customer.register"/>
+        <webhook name="greetCustomer" url="http://localhost:8181/customer/greet" event="checkout.customer.register"/>
     </webhooks>
 </manifest>

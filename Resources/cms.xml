@@ -29,5 +29,56 @@
             <sizing-mode>boxed</sizing-mode>
         </default-config>
     </block>
+
+    <block>
+        <name>swag-image-six-column</name>
+        <category>image</category>
+        <label>Six columns, boxed</label>
+        <slots>
+            <slot name="one" type="image">
+                <config>
+                    <config-value name="display-mode" source="static" value="stretch"/>
+                </config>
+            </slot>
+
+            <slot name="two" type="image">
+                <config>
+                    <config-value name="display-mode" source="static" value="stretch"/>
+                </config>
+            </slot>
+
+            <slot name="three" type="image">
+                <config>
+                    <config-value name="display-mode" source="static" value="stretch"/>
+                </config>
+            </slot>
+
+            <slot name="four" type="image">
+                <config>
+                    <config-value name="display-mode" source="static" value="stretch"/>
+                </config>
+            </slot>
+
+            <slot name="five" type="image">
+                <config>
+                    <config-value name="display-mode" source="static" value="stretch"/>
+                </config>
+            </slot>
+
+            <slot name="six" type="image">
+                <config>
+                    <config-value name="display-mode" source="static" value="stretch"/>
+                </config>
+            </slot>
+        </slots>
+
+        <default-config>
+            <margin-top>20px</margin-top>
+            <margin-right>20px</margin-right>
+            <margin-bottom>20px</margin-bottom>
+            <margin-left>20px</margin-left>
+            <sizing-mode>boxed</sizing-mode>
+        </default-config>
+    </block>
 </blocks>
 </cms>

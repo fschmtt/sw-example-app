@@ -2,3 +2,4 @@
 /shops/*
 !/shops/.gitkeep
 /vendor/
+.env

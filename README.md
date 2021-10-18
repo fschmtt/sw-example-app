@@ -11,6 +11,8 @@ Have the [shopware/development](https://gitlab.shopware.com/shopware/6/product/d
 
 Clone this repository into `custom/apps/SwExampleApp`.
 
+Copy the `.env.dist` file to `.env` and adjust it accordingly.
+
 Install Composer dependencies by running `docker-compose run composer composer install`.
 
 Start the App by running `docker-compose up -d`.

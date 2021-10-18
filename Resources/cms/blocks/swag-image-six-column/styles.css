@@ -1,0 +1,60 @@
+/*
+ * Styling of your block preview in the CMS sidebar
+ */
+.sw-cms-preview-swag-image-six-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    padding: 10px;
+}
+
+/*
+ * Styling of your block on the CMS stage
+ */
+.sw-cms-block-swag-image-six-column-component {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+}
+
+/*
+ * Styling of slot one
+ */
+.sw-cms-block-swag-image-six-column-component .sw-cms-slot-one {
+    /* nth */
+}
+
+/*
+ * Styling of slot two
+ */
+.sw-cms-block-swag-image-six-column-component .sw-cms-slot-two {
+    /* nth */
+}
+
+/*
+ * Styling of slot three
+ */
+.sw-cms-block-swag-image-six-column-component .sw-cms-slot-three {
+    /* nth */
+}
+
+/*
+ * Styling of slot four
+ */
+.sw-cms-block-swag-image-six-column-component .sw-cms-slot-four {
+    /* nth */
+}
+
+/*
+ * Styling of slot five
+ */
+.sw-cms-block-swag-image-six-column-component .sw-cms-slot-five {
+    /* nth */
+}
+
+/*
+ * Styling of slot six
+ */
+.sw-cms-block-swag-image-six-column-component .sw-cms-slot-six {
+    /* nth */
+}
