@@ -12,6 +12,8 @@ class MetaInformation
 {
     public function __invoke(Request $request, RequestHandler $requestHandler): Response
     {
+        $request = $this->detectShopwareVersion($request);
+
         $errorResponse = new \Slim\Psr7\Response(400);
         $errorResponse = $errorResponse->withHeader('Content-Type', 'application/json');
 

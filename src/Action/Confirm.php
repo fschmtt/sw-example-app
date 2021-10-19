@@ -11,16 +11,6 @@ class Confirm
 {
     public function __invoke(Request $request, Response $response, array $args): Response
     {
-        /*$headers = '';
-        foreach ($request->getHeaders() as $name => $values) {
-            $headers .= $name . ': ' . implode(', ', $values);
-        }
-
-        file_put_contents(
-            __DIR__ . '/confirm.txt',
-            $request->getUri()->getQuery() ."\n". $headers ."\n". (string) $request->getBody()
-        );*/
-
         $shop = $request->getParsedBody();
 
         $shopSecret = @file_get_contents(sprintf(__DIR__ . '/../../shops/%s.json', $shop['shopId']));

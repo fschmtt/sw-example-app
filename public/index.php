@@ -20,17 +20,16 @@ use Slim\Factory\AppFactory;
 $app = AppFactory::create();
 
 $app->addBodyParsingMiddleware();
-$app->add(new ShopwareVersion());
+$app->add(new ShopwareVersion())
+    /*->add(new MetaInformation())*/;
 
 $app->get('/registration', new Register())
     ->add(new VerifyAppSignature());
 
 $app->post('/registration/confirm', new Confirm())
-    /*->add(new VerifyShopSignature())
-    ->add(new MetaInformation())*/;
+    ->add(new VerifyShopSignature());
 
 $app->post('/customer/greet', new Greet())
-    ->add(new MetaInformation())
     ->add(new VerifyShopSignature());
 
 $app->get('/greetings/module', function (Request $request, Response $response, array $args) {

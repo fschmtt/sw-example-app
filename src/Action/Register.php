@@ -11,16 +11,6 @@ class Register
 {
     public function __invoke(Request $request, Response $response, array $args): Response
     {
-        /*$headers = '';
-        foreach ($request->getHeaders() as $name => $values) {
-            $headers .= $name . ': ' . implode(', ', $values);
-        }
-
-        file_put_contents(
-            __DIR__ . '/registration.txt',
-            $request->getUri()->getQuery() ."\n". $headers ."\n". $request->getParsedBody()
-        );*/
-
         $appSecret = 'sw-example-app-1337';
         $appName = 'SwExampleApp';
 
