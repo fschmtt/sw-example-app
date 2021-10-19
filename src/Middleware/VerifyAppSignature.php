@@ -27,12 +27,12 @@ class VerifyAppSignature
         $appSecret = 'sw-example-app-1337';
 
         $queryString = $request->getUri()->getQuery();
-        $signature = hash_hmac('sha256', $queryString, $appSecret);
+        $hmac = hash_hmac('sha256', $queryString, $appSecret);
 
-        if ($signature !== $appSignature) {
+        if (!hash_equals($appSignature, $hmac)) {
             $errorResponse->getBody()->write(json_encode([
                 'error' => 'ERR_INVALID_APP_SIGNATURE',
-                'description' => 'The request is not correctly signed'
+                'description' => 'The "shopware-app-signature" is invalid'
             ], JSON_THROW_ON_ERROR));
 
             return $errorResponse->withStatus(401);

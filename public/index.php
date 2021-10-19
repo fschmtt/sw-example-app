@@ -9,7 +9,6 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Fschmtt\SwExampleApp\Action\Confirm;
 use Fschmtt\SwExampleApp\Action\Greet;
 use Fschmtt\SwExampleApp\Action\Register;
-use Fschmtt\SwExampleApp\Middleware\MetaInformation;
 use Fschmtt\SwExampleApp\Middleware\ShopwareVersion;
 use Fschmtt\SwExampleApp\Middleware\VerifyAppSignature;
 use Fschmtt\SwExampleApp\Middleware\VerifyShopSignature;
@@ -20,8 +19,7 @@ use Slim\Factory\AppFactory;
 $app = AppFactory::create();
 
 $app->addBodyParsingMiddleware();
-$app->add(new ShopwareVersion())
-    /*->add(new MetaInformation())*/;
+$app->add(new ShopwareVersion());
 
 $app->get('/registration', new Register())
     ->add(new VerifyAppSignature());
