@@ -2,6 +2,9 @@ version: '3.7'
 
 services:
   php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
     env_file:
       - .env
     image: library/php:8.0-fpm
