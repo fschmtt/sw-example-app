@@ -25,7 +25,7 @@ In your App's `manifest.xml` you’ll want to use:
 ```xml
     ...
     <setup>
-        <registrationUrl>http://localhost:8181/registration</registrationUrl>
+        <registrationUrl>http://localhost:8181/registration/register</registrationUrl>
     </setup>
     ...
 ```
@@ -34,21 +34,22 @@ In your App's `manifest.xml` you’ll want to use:
 
 |Route|Description|
 |---|---|
-|`GET /registration`||
+|`GET /registration/register`||
 |`POST /registration/confirm`||
-|`POST /customer/greet`|Webhook for `checkout.customer.registered` event|
-|`GET /greetings/module`|Main module for Shopware Administration|
+|`POST /action-buttons/greet-customer`|Action button to greet customer|
+|`POST /webhooks/greet-customer`|Webhook for `checkout.customer.registered` event|
+|`GET /modules/greetings`|Main module for Shopware Administration|
 
 ## Registration Workflow (Setup)
 
 ### Example Registration Request
 ```http request
-GET /registration?shop-id=GLblL0Q8YI7veaV5&shop-url=http://shopware.dev&timestamp=1634563302
+GET /registration/register?shop-id=GLblL0Q8YI7veaV5&shop-url=http://localhost:8000&timestamp=1634563302
 
-Host: localhost
+Host: http://localhost:8181
 Sw-User-Language: en-GB
 Sw-Context-Language: 2fbb5fe2e29a4d70aa5854ce7ce3e20b
-Sw-Version: 6.4.9999999.9999999-dev
+Sw-Version: 6.4.6.0
 Shopware-App-Signature: e58d9b15962180fe013fc3414bfa1a0436017e2f77c7d33d3459c74f1eaf4bdb
 ```
 
@@ -67,16 +68,16 @@ POST /registration/confirm
 
 Sw-User-Language: en-GB
 Sw-Context-Language: 2fbb5fe2e29a4d70aa5854ce7ce3e20b
-Sw-Version: 6.4.9999999.9999999-dev
+Sw-Version: 6.4.6.0
 Shopware-Shop-Signature: b3a2cc3e9c622cf24579518a951b6d569eaf00970b46bb20b97bf8fb0fbdb2a1
 Content-Type: application/json
-Host: localhost
+Host: http://localhost:8181
 
 {
     "apiKey":"SWIAWJNGBNZRQJHTVGKWZTLVTQ",
     "secretKey":"MWN0a3ppZXZSOWpLRUk1d0pKMUdxVDB4dkEzNVFOOWY3bjZaTEo",
     "timestamp":"1634563305",
-    "shopUrl":"http:\/\/shopware-cloud.swag:8000",
+    "shopUrl":"http:\/\/localhost:8000",
     "shopId":"GLblL0Q8YI7veaV5"
 }
 ```
