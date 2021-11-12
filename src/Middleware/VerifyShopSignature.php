@@ -19,8 +19,8 @@ class VerifyShopSignature
 
         if (!$shopSignature) {
                 $errorResponse->getBody()->write(json_encode([
-                    'error' => 'ERR_MISSING_SHOPWARE_SHOP_SIGNATURE_HEADER',
-                    'description' => 'The request is missing the "shopware-shop-signature" header'
+                    'error' => 'ERR_MISSING_SHOPWARE_SHOP_SIGNATURE',
+                    'description' => 'The request is missing the "shopware-shop-signature"'
                 ], JSON_THROW_ON_ERROR));
 
             return $errorResponse;

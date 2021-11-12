@@ -14,17 +14,27 @@
     </meta>
 
     <setup>
-        <registrationUrl>http://localhost:8181/registration</registrationUrl>
+        <registrationUrl>http://localhost:8181/registration/register</registrationUrl>
         <secret>sw-example-app-1337</secret>
     </setup>
 
     <admin>
-        <module name="greetings" source="http://localhost:8181/greetings/module" parent="sw-customer">
-            <label>Greetings</label>
+        <module name="greetings" source="http://localhost:8181/modules/greetings" parent="sw-customer">
+            <label lang="en-GB">Greetings</label>
             <label lang="de-DE">Begrüßungen</label>
         </module>
 
-        <main-module source="http://localhost:8181/greetings/module"/>
+        <action-button action="greetCustomerList" entity="customer" view="list" url="http://localhost:8181/action-buttons/greet-customer">
+            <label lang="en-GB">Greet customer</label>
+            <label lang="de-DE">Kunde begrüßen</label>
+        </action-button>
+
+        <action-button action="greetCustomerDetail" entity="customer" view="detail" url="http://localhost:8181/action-buttons/greet-customer">
+            <label lang="en-GB">Greet customer</label>
+            <label lang="de-DE">Kunde begrüßen</label>
+        </action-button>
+
+        <main-module source="http://localhost:8181/modules/greetings"/>
     </admin>
 
     <permissions>
@@ -32,6 +42,29 @@
     </permissions>
 
     <webhooks>
-        <webhook name="greetCustomer" url="http://localhost:8181/customer/greet" event="checkout.customer.register"/>
+        <webhook name="greetCustomer" url="http://localhost:8181/webhooks/greet-customer" event="checkout.customer.register"/>
     </webhooks>
+
+    <cookies>
+        <group>
+            <snippet-name>Greetings</snippet-name>
+            <snippet-description>Receive some nice greetings.</snippet-description>
+            <entries>
+                <cookie>
+                    <cookie>swag_received_greetings</cookie>
+                    <snippet-name>Received greetings</snippet-name>
+                    <snippet-description>Stores whether you have received greetings.</snippet-description>
+                    <value>0</value>
+                    <expiration>1337</expiration>
+                </cookie>
+                <cookie>
+                    <cookie>swag_liked_greetings</cookie>
+                    <snippet-name>Liked greetings</snippet-name>
+                    <snippet-description>Stores whether you liked the received greetings.</snippet-description>
+                    <value>0</value>
+                    <expiration>1337</expiration>
+                </cookie>
+            </entries>
+        </group>
+    </cookies>
 </manifest>
