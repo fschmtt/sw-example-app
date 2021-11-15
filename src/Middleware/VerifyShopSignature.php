@@ -26,8 +26,6 @@ class VerifyShopSignature
             return $errorResponse;
         }
 
-        $request = $request->withAttribute('SHOP_SIGNATURE', $shopSignature);
-
         $shopId = $this->getShopIdFromRequest($request);
 
         if (!$shopId) {
@@ -52,7 +50,8 @@ class VerifyShopSignature
             return $errorResponse->withStatus(401);
         }
 
-        $shopSecret = json_decode($shopSecret, true, JSON_THROW_ON_ERROR)['shopSecret'];
+        $shop = json_decode($shopSecret, true, JSON_THROW_ON_ERROR);
+        $shopSecret = $shop['shopSecret'] ?? '';
 
         $hmacBody = \hash_hmac('sha256', $request->getBody()->getContents(), $shopSecret);
         $hmacQuery = \hash_hmac('sha256', $this->getQueryStringWithoutShopSignature($request), $shopSecret);
@@ -65,6 +64,12 @@ class VerifyShopSignature
 
             return $errorResponse->withStatus(401);
         }
+
+        $request = $request->withAttribute('SHOP_ID', $shopId);
+        $request = $request->withAttribute('SHOP_SECRET', $shopSecret);
+        $request = $request->withAttribute('SHOP_API_KEY', $shop['apiKey']);
+        $request = $request->withAttribute('SHOP_SECRET_KEY', $shop['secretKey']);
+        $request = $request->withAttribute('SHOP_URL', $shop['shopUrl']);
 
         return $requestHandler->handle($request);
     }

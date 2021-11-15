@@ -6,12 +6,13 @@ namespace Fschmtt\SwExampleApp;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Fschmtt\SwExampleApp\ActionButton\GreetCustomer as ActionButtonGreetCustomer;
 use Fschmtt\SwExampleApp\Middleware\ShopwareVersion;
 use Fschmtt\SwExampleApp\Middleware\VerifyAppSignature;
 use Fschmtt\SwExampleApp\Middleware\VerifyShopSignature;
 use Fschmtt\SwExampleApp\Registration\Confirm;
 use Fschmtt\SwExampleApp\Registration\Register;
-use Fschmtt\SwExampleApp\Webhook\GreetCustomer;
+use Fschmtt\SwExampleApp\Webhook\GreetCustomer as WebhookGreetCustomer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
@@ -48,14 +49,14 @@ $app->group('/modules', function (RouteCollectorProxy $app) {
  * Webhooks
  */
 $app->group('/webhooks', function (RouteCollectorProxy $app) {
-    $app->post('/greet-customer', new GreetCustomer());
+    $app->post('/greet-customer', new WebhookGreetCustomer());
 })->add(new VerifyShopSignature());
 
 /**
  * Action buttons
  */
 $app->group('/action-buttons', function (RouteCollectorProxy $app) {
-    $app->post('/greet-customer', new GreetCustomer());
+    $app->post('/greet-customer', new ActionButtonGreetCustomer());
 })->add(new VerifyShopSignature());
 
 $app->run();

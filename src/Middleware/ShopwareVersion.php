@@ -14,7 +14,7 @@ class ShopwareVersion
     {
         $shopwareVersion = $request->getHeaderLine('sw-version') === '' ? null : $request->getHeaderLine('sw-version');
 
-        $request = $request->withAttribute('SHOPWARE_VERSION', $shopwareVersion);
+        $request = $request->withAttribute('SHOP_SHOPWARE_VERSION', $shopwareVersion);
 
         return $requestHandler->handle($request);
     }
