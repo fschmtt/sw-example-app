@@ -40,6 +40,30 @@ In your App's `manifest.xml` you’ll want to use:
 |`POST /webhooks/greet-customer`|Webhook for `checkout.customer.registered` event|
 |`GET /modules/greetings`|Main module for Shopware Administration|
 
+## Middlewares
+
+### VerifyShopSignature
+This middleware checks the authenticity of an incoming request, i.e. the request is signed properly.
+For `GET` requests it looks up the query parameter `shopware-shop-signature`; for `POST` requests it looks up the HTTP header `shopware-shop-signature`.
+
+The middleware stores the following attributes on the request:
+
+| Attribute | Description |
+| --- | --- |
+| SHOP_ID | The ID of the shop that sent the request. |
+| SHOP_URL | The URL of the shop that sent the request. |
+| SHOP_SECRET | The secret (used for signing) of the shop that sent the request. |
+| SHOP_API_KEY | The API key of the shop that sent the request. |
+| SHOP_SECRET_KEY | The secret key of the shop that sent the request. |
+
+The attributes can be accessed via `$request->getAttribute()`.
+
+### VerifyAppSignature
+tbd
+
+### ShopwareVersion
+tbd
+
 ## Registration Workflow (Setup)
 
 ### Example Registration Request
