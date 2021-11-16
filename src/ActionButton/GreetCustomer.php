@@ -11,6 +11,7 @@ class GreetCustomer
 {
     public function __invoke(Request $request, Response $response, array $args): Response
     {
+        // Show notification
         /*$response->getBody()->write(json_encode([
             'actionType' => 'notification',
             'payload' => [
@@ -19,6 +20,7 @@ class GreetCustomer
             ]
         ], JSON_THROW_ON_ERROR));*/
 
+        // Open modal
         $response->getBody()->write(json_encode([
             'actionType' => 'openModal',
             'payload' => [
@@ -27,6 +29,20 @@ class GreetCustomer
                 'expand' => true
             ]
         ], JSON_THROW_ON_ERROR));
+
+        // Open new tab
+        /*$response->getBody()->write(json_encode([
+            'actionType' => 'openNewTab',
+            'payload' => [
+                'redirectUrl' => 'http://localhost:8181/modules/greetings',
+            ]
+        ], JSON_THROW_ON_ERROR));*/
+
+        // Reload
+        /*$response->getBody()->write(json_encode([
+            'actionType' => 'reload',
+            'payload' => []
+        ], JSON_THROW_ON_ERROR));*/
 
         $response->getBody()->rewind();
 
