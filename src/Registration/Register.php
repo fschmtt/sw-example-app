@@ -11,16 +11,13 @@ class Register
 {
     public function __invoke(Request $request, Response $response, array $args): Response
     {
-        $appSecret = 'sw-example-app-1337';
-        $appName = 'SwExampleApp';
-
         $queryString = $request->getUri()->getQuery();
 
         parse_str($queryString, $queryValues);
         $proof = \hash_hmac(
             'sha256',
-            $queryValues['shop-id'] . $queryValues['shop-url'] . $appName,
-            $appSecret
+            $queryValues['shop-id'] . $queryValues['shop-url'] . $_SERVER['APP_NAME'],
+            $_SERVER['APP_SECRET']
         );
 
         $shopSecret = bin2hex(random_bytes(32));

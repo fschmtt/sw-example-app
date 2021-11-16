@@ -24,10 +24,8 @@ class VerifyAppSignature
             return $errorResponse;
         }
 
-        $appSecret = 'sw-example-app-1337';
-
         $queryString = $request->getUri()->getQuery();
-        $hmac = hash_hmac('sha256', $queryString, $appSecret);
+        $hmac = hash_hmac('sha256', $queryString, $_SERVER['APP_SECRET']);
 
         if (!hash_equals($appSignature, $hmac)) {
             $errorResponse->getBody()->write(json_encode([
