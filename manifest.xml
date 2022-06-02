@@ -8,10 +8,15 @@
         <description lang="de-DE">Begrüßt neue Kunden.</description>
         <author>fschmtt</author>
         <copyright>(c) by fschmtt</copyright>
-        <version>1.0.0</version>
+        <version>1.0.3</version>
         <license>MIT</license>
         <icon>icon.png</icon>
     </meta>
+
+    <allowed-hosts>
+        <host>https://google.com</host>
+        <host>https://meta.com</host>
+    </allowed-hosts>
 
     <setup>
         <registrationUrl>http://localhost:8181/registration/register</registrationUrl>
@@ -39,6 +44,8 @@
 
     <permissions>
         <read>customer</read>
+        <read>product</read>
+        <read>custom_fields</read>
     </permissions>
 
     <webhooks>
