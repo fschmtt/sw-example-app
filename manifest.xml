@@ -8,7 +8,7 @@
         <description lang="de-DE">Begrüßt neue Kunden.</description>
         <author>fschmtt</author>
         <copyright>(c) by fschmtt</copyright>
-        <version>1.0.3</version>
+        <version>1.0.4</version>
         <license>MIT</license>
         <icon>icon.png</icon>
     </meta>
@@ -50,6 +50,7 @@
 
     <webhooks>
         <webhook name="greetCustomer" url="http://localhost:8181/webhooks/greet-customer" event="checkout.customer.register"/>
+        <webhook name="contactForm" url="http://localhost:8181/webhooks/contact-form" event="contact_form.send"/>
     </webhooks>
 
     <cookies>

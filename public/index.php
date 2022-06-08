@@ -12,6 +12,7 @@ use Fschmtt\SwExampleApp\Middleware\VerifyAppSignature;
 use Fschmtt\SwExampleApp\Middleware\VerifyShopSignature;
 use Fschmtt\SwExampleApp\Registration\Confirm;
 use Fschmtt\SwExampleApp\Registration\Register;
+use Fschmtt\SwExampleApp\Webhook\ContactForm;
 use Fschmtt\SwExampleApp\Webhook\GreetCustomer as WebhookGreetCustomer;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -50,6 +51,7 @@ $app->group('/modules', function (RouteCollectorProxy $app) {
  */
 $app->group('/webhooks', function (RouteCollectorProxy $app) {
     $app->post('/greet-customer', new WebhookGreetCustomer());
+    $app->post('/contact-form', new ContactForm());
 })->add(new VerifyShopSignature());
 
 /**
