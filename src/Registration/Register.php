@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Fschmtt\SwExampleApp\Registration;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ConnectException;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
@@ -19,6 +21,14 @@ class Register
             $queryValues['shop-id'] . $queryValues['shop-url'] . $_SERVER['APP_NAME'],
             $_SERVER['APP_SECRET']
         );
+
+        if (!$this->tryShopUrl($queryValues['shop-url'])) {
+            $response->getBody()->write(json_encode([
+                'error' => 'The provided shop-url is not valid. Please make sure to properly configure your APP_URL.',
+            ], JSON_THROW_ON_ERROR));
+
+            return $response->withStatus(400);
+        }
 
         $shopSecret = bin2hex(random_bytes(32));
 
@@ -37,5 +47,17 @@ class Register
 
         return $response->withHeader('Content-Type', 'application/json')
             ->withStatus(200);
+    }
+
+    private function tryShopUrl(string $shopUrl): bool
+    {
+        try {
+            $httpClient = new Client();
+            $httpClient->get($shopUrl);
+
+            return true;
+        } catch (ConnectException $e) {
+            return false;
+        }
     }
 }
