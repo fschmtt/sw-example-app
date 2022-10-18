@@ -10,12 +10,11 @@ use Fschmtt\SwExampleApp\ActionButton\GreetCustomer as ActionButtonGreetCustomer
 use Fschmtt\SwExampleApp\Middleware\ShopwareVersion;
 use Fschmtt\SwExampleApp\Middleware\VerifyAppSignature;
 use Fschmtt\SwExampleApp\Middleware\VerifyShopSignature;
+use Fschmtt\SwExampleApp\Module\MainModule;
 use Fschmtt\SwExampleApp\Registration\Confirm;
 use Fschmtt\SwExampleApp\Registration\Register;
 use Fschmtt\SwExampleApp\Webhook\ContactForm;
 use Fschmtt\SwExampleApp\Webhook\GreetCustomer as WebhookGreetCustomer;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 use Slim\Routing\RouteCollectorProxy;
 
@@ -39,11 +38,7 @@ $app->group('/registration', function (RouteCollectorProxy $app) {
  * Modules
  */
 $app->group('/modules', function (RouteCollectorProxy $app) {
-    $app->get('/greetings', function (Request $request, Response $response, array $args) {
-        $response->getBody()->write(file_get_contents(__DIR__ . '/module.html'));
-
-        return $response;
-    });
+    $app->get('/greetings', new MainModule());
 })->add(new VerifyShopSignature());
 
 /**
