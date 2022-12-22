@@ -51,9 +51,12 @@ class Register
 
     private function tryShopUrl(string $shopUrl): bool
     {
+        if (!$_SERVER['VERIFY_SHOP_URL']) {
+            return true;
+        }
+
         try {
-            $httpClient = new Client();
-            $httpClient->get($shopUrl);
+            (new Client())->get($shopUrl);
 
             return true;
         } catch (ConnectException $e) {

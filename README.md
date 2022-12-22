@@ -1,11 +1,10 @@
-# Example Shopware 6 App
+# Shopware 6 App Example
 
-Just to getting to know the App system ;-)
+Shopware 6 app based on the [Slim framework](https://www.slimframework.com/).
 
 ## Requirements
+* Have a running Shopware 6 instance
 * Docker
-
-Have the [shopware/development](https://gitlab.shopware.com/shopware/6/product/development) project up and running.
 
 ## Installation
 
@@ -15,7 +14,19 @@ Copy the `.env.dist` file to `.env` and adjust it accordingly.
 
 Install Composer dependencies by running `docker-compose run composer composer install`.
 
-Start the App by running `docker-compose up -d`.
+Start the app server by running `docker-compose up -d`.
+
+## Configuration
+
+The app server is configured via the `.env` file.
+
+| Environment variable | Type | Description |
+|----------------------|------|-------------|
+| `APP_NAME` | `string` | The technical name of the app. |
+| `APP_SECRET` | `string` | The secret provided by the Shopware Account in the manufacturer's area. |
+| `FRONTEND_URL` | `string` | The URL that modules for the Administration are accessible from. |
+| `BACKEND_URL` | `string` | The URL that is used for registration and webhooks. |
+| `VERIFY_SHOP_URL` | `bool` | Whether the provided `shop-url` should be verified upon registration. |
 
 ## Development
 
