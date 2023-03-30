@@ -4,7 +4,7 @@ Shopware 6 app based on the [Slim framework](https://www.slimframework.com/).
 
 ## Requirements
 * Have a running Shopware 6 instance
-* Docker
+* Docker _or_ devenv
 
 ## Installation
 
@@ -12,9 +12,9 @@ Clone this repository into `custom/apps/SwExampleApp`.
 
 Copy the `.env.dist` file to `.env` and adjust it accordingly.
 
-Install Composer dependencies by running `docker-compose run composer composer install`.
+Install Composer dependencies by running `docker-compose run composer composer install` (Docker) _or_ `composer install` (devenv).
 
-Start the app server by running `docker-compose up -d`.
+Start the app server by running `docker-compose up -d` (Docker) _or_ `devenv up` (devenv).
 
 ## Configuration
 
