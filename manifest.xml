@@ -19,27 +19,27 @@
     </allowed-hosts>
 
     <setup>
-        <registrationUrl>http://localhost:8181/registration/register</registrationUrl>
+        <registrationUrl>http://localhost:8592/registration/register</registrationUrl>
         <secret>sw-example-app-1337</secret>
     </setup>
 
     <admin>
-        <module name="greetings" source="http://localhost:8181/modules/greetings" parent="sw-customer">
+        <module name="greetings" source="http://localhost:8592/modules/greetings" parent="sw-customer">
             <label lang="en-GB">Greetings</label>
             <label lang="de-DE">Begrüßungen</label>
         </module>
 
-        <action-button action="greetCustomerList" entity="customer" view="list" url="http://localhost:8181/action-buttons/greet-customer">
+        <action-button action="greetCustomerList" entity="customer" view="list" url="http://localhost:8592/action-buttons/greet-customer">
             <label lang="en-GB">Greet customer</label>
             <label lang="de-DE">Kunde begrüßen</label>
         </action-button>
 
-        <action-button action="greetCustomerDetail" entity="customer" view="detail" url="http://localhost:8181/action-buttons/greet-customer">
+        <action-button action="greetCustomerDetail" entity="customer" view="detail" url="http://localhost:8592/action-buttons/greet-customer">
             <label lang="en-GB">Greet customer</label>
             <label lang="de-DE">Kunde begrüßen</label>
         </action-button>
 
-        <main-module source="http://localhost:8181/modules/greetings"/>
+        <main-module source="http://localhost:8592/modules/greetings"/>
     </admin>
 
     <permissions>
@@ -49,8 +49,8 @@
     </permissions>
 
     <webhooks>
-        <webhook name="greetCustomer" url="http://localhost:8181/webhooks/greet-customer" event="checkout.customer.register"/>
-        <webhook name="contactForm" url="http://localhost:8181/webhooks/contact-form" event="contact_form.send"/>
+        <webhook name="greetCustomer" url="http://localhost:8592/webhooks/greet-customer" event="checkout.customer.register"/>
+        <webhook name="contactForm" url="http://localhost:8592/webhooks/contact-form" event="contact_form.send"/>
     </webhooks>
 
     <cookies>

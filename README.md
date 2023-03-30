@@ -30,13 +30,13 @@ The app server is configured via the `.env` file.
 
 ## Development
 
-You can access the App via http://localhost:8181.
+You can access the App via http://localhost:8592.
 
 In your App's `manifest.xml` you’ll want to use:
 ```xml
     ...
     <setup>
-        <registrationUrl>http://localhost:8181/registration/register</registrationUrl>
+        <registrationUrl>http://localhost:8592/registration/register</registrationUrl>
     </setup>
     ...
 ```
@@ -81,7 +81,7 @@ tbd
 ```http request
 GET /registration/register?shop-id=GLblL0Q8YI7veaV5&shop-url=http://localhost:8000&timestamp=1634563302
 
-Host: http://localhost:8181
+Host: http://localhost:8592
 Sw-User-Language: en-GB
 Sw-Context-Language: 2fbb5fe2e29a4d70aa5854ce7ce3e20b
 Sw-Version: 6.4.6.0
@@ -93,7 +93,7 @@ Shopware-App-Signature: e58d9b15962180fe013fc3414bfa1a0436017e2f77c7d33d3459c74f
 {
     "proof": "833e639da5798c182786515db9aaf0ad7657ae15968030c45bebb2ed26e8309d",
     "secret": "18a53af4c55d2c4460937dab1054c338022fccbae9eb68da00e2d7c3e3c62b87",
-    "confirmation_url": "http://localhost:8181/registration/confirm"
+    "confirmation_url": "http://localhost:8592/registration/confirm"
 }
 ```
 
@@ -106,7 +106,7 @@ Sw-Context-Language: 2fbb5fe2e29a4d70aa5854ce7ce3e20b
 Sw-Version: 6.4.6.0
 Shopware-Shop-Signature: b3a2cc3e9c622cf24579518a951b6d569eaf00970b46bb20b97bf8fb0fbdb2a1
 Content-Type: application/json
-Host: http://localhost:8181
+Host: http://localhost:8592
 
 {
     "apiKey":"SWIAWJNGBNZRQJHTVGKWZTLVTQ",

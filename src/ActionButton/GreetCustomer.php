@@ -24,7 +24,7 @@ class GreetCustomer
         $response->getBody()->write(json_encode([
             'actionType' => 'openModal',
             'payload' => [
-                'iframeUrl' => 'http://localhost:8181/modules/greetings',
+                'iframeUrl' => 'http://localhost:8592/modules/greetings',
                 'size' => 'large',
                 'expand' => true
             ]
@@ -34,7 +34,7 @@ class GreetCustomer
         /*$response->getBody()->write(json_encode([
             'actionType' => 'openNewTab',
             'payload' => [
-                'redirectUrl' => 'http://localhost:8181/modules/greetings',
+                'redirectUrl' => 'http://localhost:8592/modules/greetings',
             ]
         ], JSON_THROW_ON_ERROR));*/
 

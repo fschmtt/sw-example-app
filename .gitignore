@@ -3,3 +3,8 @@
 !/shops/.gitkeep
 /vendor/
 .env
+
+# Devenv
+.devenv*
+devenv.local.nix
+
