@@ -6,6 +6,7 @@ namespace Fschmtt\SwExampleApp;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Dotenv\Dotenv;
 use Fschmtt\SwExampleApp\ActionButton\GreetCustomer as ActionButtonGreetCustomer;
 use Fschmtt\SwExampleApp\Middleware\ShopwareVersion;
 use Fschmtt\SwExampleApp\Middleware\VerifyAppSignature;
@@ -17,6 +18,9 @@ use Fschmtt\SwExampleApp\Webhook\ContactForm;
 use Fschmtt\SwExampleApp\Webhook\GreetCustomer as WebhookGreetCustomer;
 use Slim\Factory\AppFactory;
 use Slim\Routing\RouteCollectorProxy;
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
+$dotenv->load();
 
 $app = AppFactory::create();
 
