@@ -3,7 +3,7 @@
 {
   # PHP
   languages.php.enable = true;
-  languages.php.version = lib.mkDefault "8.2";
+  languages.php.version = lib.mkDefault "8.3";
   languages.php.fpm.pools.EL1280oS = lib.mkDefault {
     settings = {
       "clear_env" = "no";
